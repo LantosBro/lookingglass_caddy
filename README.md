@@ -46,7 +46,8 @@ For installation using Docker, follow these steps and run the commands on the ta
 4. Currently, the Docker images are not hosted on an image repository, so you'll have to build them yourself with the following command: `docker compose build`.
 5. For production use, change the environment variables inside the `docker-compose.yml` file to the desired values. For testing purposes, the default values are fine.
 6. Create and start the containers: `docker compose up -d`.
-7. Afterward, the Looking Glass should be reachable from your web browser at `http://$your_server_ip/`!
+7. This repository now ships with a Caddy-based frontend by default. The web server listens on port 80 (host network mode). The PHP-FPM container listens on 9000. Caddy is configured to route PHP requests to `127.0.0.1:9000` with `php_fastcgi`.
+8. Afterward, the Looking Glass should be reachable from your web browser at `http://$your_server_ip/`!
 
 ### iPerf3 Installation (Optional)
 > It is recommended to install iPerf3 on a different server from your looking glass to avoid network congestion.

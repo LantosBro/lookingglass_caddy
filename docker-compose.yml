@@ -1,10 +1,10 @@
 services:
-  nginx:
-    image: hybula/lookingglass-nginx:1
-    container_name: lg-nginx
+  caddy:
+    image: hybula/lookingglass-caddy:1
+    container_name: lg-caddy
     build:
       context: .
-      dockerfile: docker/nginx/Dockerfile
+      dockerfile: docker/caddy/Dockerfile
     network_mode: host
     restart: unless-stopped
 

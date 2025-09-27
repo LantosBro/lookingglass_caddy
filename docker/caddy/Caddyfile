@@ -1,0 +1,17 @@
+{
+    auto_https off
+    admin off
+}
+
+:80 {
+    root * /var/www/html
+    encode zstd gzip
+    php_fastcgi 127.0.0.1:9000
+    file_server
+    log {
+        output stdout
+        format console
+    }
+}
+
+
