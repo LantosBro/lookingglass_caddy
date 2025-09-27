@@ -7,6 +7,9 @@ services:
       dockerfile: docker/caddy/Dockerfile
     network_mode: host
     restart: unless-stopped
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
 
   php-fpm:
     image: hybula/lookingglass-php:1
@@ -45,3 +48,7 @@ services:
   #   tty: true
   #   stdin_open: true
   #   restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:
